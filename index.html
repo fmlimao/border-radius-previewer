@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Border Radius Previewer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&display=swap');
+
+        html,
+        body {
+            font-family: Dosis;
+            font-weight: 200;
+        }
+
+        .bg-theme {
+            background-color: #1b191b;
+        }
+
+        .text-theme {
+            color: #1b191b;
+        }
+    </style>
+</head>
+
+<body class="bg-theme text-gray-800 py-16">
+
+    <div class="container mx-auto px-4" id="AppVue">
+
+        <h1 class="text-4xl text-center mb-16 text-white">Border Radius Previewer</h1>
+
+        <!-- card -->
+        <div class="border-2 border-blue-400 overflow-hidden shadow-lg p-4 w-full h-64" :style="style">
+            <div class="relative w-full h-full p-16">
+
+                <textarea onClick="this.select();"
+                    class="block w-full h-full bg-theme border-2 border-blue-900 p-2 text-left text-white"
+                    readonly>{{styleFormatted}}</textarea>
+
+                <input type="number"
+                    class="w-16 absolute top-0 left-0 bg-theme border-2 border-blue-900 p-2 text-right text-white"
+                    v-model="topLeft">
+
+                <input type="number"
+                    class="w-16 absolute top-0 right-0 bg-theme border-2 border-blue-900 p-2 text-right text-white"
+                    v-model="topRight">
+
+                <input type="number"
+                    class="w-16 absolute bottom-0 left-0 bg-theme border-2 border-blue-900 p-2 text-right text-white"
+                    v-model="bottomLeft">
+
+                <input type="number"
+                    class="w-16 absolute bottom-0 right-0 bg-theme border-2 border-blue-900 p-2 text-right text-white"
+                    v-model="bottomRight">
+
+            </div>
+        </div>
+        <!-- /card -->
+
+        <footer class="fixed bottom-0 left-0 w-full py-2 bg-blue-400 text-white text-sm text-theme text-center">
+            <div class="container mx-auto">
+                Desenvolvido por <a href="http://leandromacedo.dev" class="underline">Leandro Macedo</a>.
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
